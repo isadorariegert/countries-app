@@ -3,7 +3,7 @@ import LinkButton from './LinkButton';
 import { Link } from 'react-router-dom';
 
 
-function CountryCard({ countryId, flag, countryName, countryCapital, population, currency, languages }) {
+function CountryCard({ code, flag, countryName, countryCapital, population, currency, languages }) {
 
     return (
         <div className={styles.CardContainer}>
@@ -11,7 +11,7 @@ function CountryCard({ countryId, flag, countryName, countryCapital, population,
             <h2>{countryName}</h2>
             <p>Capital: {countryCapital}</p>
             <p>Populaçao: {population}</p>
-            <LinkButton to={`/countrydetail/${countryName}`} text="View More" />
+            <LinkButton to={`/countrydetail/${code}`} text="View More" />
         </div>
     )
 }

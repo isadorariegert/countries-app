@@ -52,10 +52,11 @@ function CountriesList() {
         <div className={style.CountriesListContainer}>
             {countries?.map((country, index) =>
                 <CountryCard 
-                countryName={country.name.common} 
-                countryCapital={country.capital} 
-                population={country.population} 
-                flag={country.flags.png}
+                code={country.cca2}
+                countryName={country?.name?.common} 
+                countryCapital={country?.capital} 
+                population={country?.population} 
+                flag={country?.flags?.png}
                 key={index} 
                 /> 
                 )}  

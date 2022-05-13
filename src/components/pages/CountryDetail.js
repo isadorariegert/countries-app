@@ -11,26 +11,28 @@ function CountryDetail() {
     const {name} = useParams();
 
     useEffect(() => {
-        api.get("name/"+ name)
+        api.get("alpha/"+ name)
         .then((response) => {
             setCountry(response.data);
             console.log(response.data);
         })
-    }, []);
+    }, [name]);
 
     return (
-        <div>
+        <div className={style.CountryDetailContainer}>
         <Link to="/" >
             <input type="button" value="Back" />
         </Link>
-        <h1 className={style.CountryDetailContainer}>COUNTRY DETAIL</h1>
+
         {country?.map((country, index) =>
                 <CountryInfos 
-                countryName={country.name.common} 
-                countryCapital={country.capital} 
-                population={country.population} 
-                flag={country.flags.png}
-                currency={country.currencies.name}
+                countryName={country?.name?.common} 
+                countryCapital={country?.capital} 
+                population={country?.population} 
+                flag={country?.flags?.png}
+                currency={country?.currencies}
+                bounderies={country?.borders}
+                languages={country?.languages}
                 key={index} 
                 /> 
                 )}  
